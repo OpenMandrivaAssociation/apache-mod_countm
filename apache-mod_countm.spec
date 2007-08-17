@@ -18,7 +18,6 @@ BuildRequires:	freetype-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	db4-devel
 BuildRequires:	zlib-devel
-PreReq:		rpm-helper
 #Requires:	fonts-ttf-west_european
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
