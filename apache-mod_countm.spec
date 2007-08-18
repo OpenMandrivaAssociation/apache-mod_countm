@@ -6,7 +6,7 @@
 Summary:	Mod_countm is a DSO module for the apache web server
 Name:		apache-%{mod_name}
 Version:	3.0
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		System/Servers
 License:	BSD
 URL:		http://sourceforge.net/projects/countm/
@@ -27,8 +27,6 @@ Requires:	apache-conf >= 2.2.0
 Requires:	apache >= 2.2.0
 BuildRequires:	apache-devel >= 2.2.0
 BuildRequires:	file
-Provides:	apache2-mod_countm
-Obsoletes:	apache2-mod_countm
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -58,9 +56,6 @@ install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
 install -m0755 .libs/*.so %{buildroot}%{_libdir}/apache-extramodules/
 bzcat %{SOURCE1} > %{buildroot}%{_sysconfdir}/httpd/modules.d/%{mod_conf}
 
-install -d %{buildroot}%{_var}/www/html/addon-modules
-ln -s ../../../..%{_docdir}/%{name}-%{version} %{buildroot}%{_var}/www/html/addon-modules/%{name}-%{version}
-
 install -d %{buildroot}/var/lib/%{mod_name}/dbase
 
 # install the font..., i have no clue where to put it, 
@@ -88,9 +83,6 @@ fi
 %doc *.html manual.txt
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/%{mod_conf}
 %attr(0755,root,root) %{_libdir}/apache-extramodules/%{mod_so}
-%{_var}/www/html/addon-modules/*
 %attr(0755,apache,apache) %dir /var/lib/%{mod_name}
 %attr(0755,apache,apache) %dir /var/lib/%{mod_name}/dbase
 %attr(0644,root,root) %{_datadir}/fonts/ttf/western/FreeMono.ttf
-
-
