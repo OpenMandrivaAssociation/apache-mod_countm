@@ -6,7 +6,7 @@
 Summary:	DSO module for the apache web server
 Name:		apache-%{mod_name}
 Version:	3.0
-Release:	%mkrel 17
+Release:	%mkrel 18
 Group:		System/Servers
 License:	BSD
 URL:		http://sourceforge.net/projects/countm/
@@ -16,7 +16,7 @@ BuildRequires:	gd-devel
 BuildRequires:	png-devel 
 BuildRequires:	freetype-devel
 BuildRequires:	libjpeg-devel
-BuildRequires:	db4-devel
+BuildRequires:	db-devel
 BuildRequires:	zlib-devel
 #Requires:	fonts-ttf-west_european
 Requires(pre): rpm-helper
@@ -45,7 +45,7 @@ find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 
 %build
 
-%{_sbindir}/apxs -L%{_libdir} -lgd -lfreetype -ljpeg -lpng -lm -ldb -c mod_countm.c version.c
+%{_sbindir}/apxs -c mod_countm.c version.c %{ldflags} -L%{_libdir} -lgd -ldb -lapr-1
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
