@@ -6,7 +6,7 @@
 Summary:	DSO module for the apache web server
 Name:		apache-%{mod_name}
 Version:	3.0
-Release:	%mkrel 18
+Release:	%mkrel 19
 Group:		System/Servers
 License:	BSD
 URL:		http://sourceforge.net/projects/countm/
@@ -45,7 +45,7 @@ find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 
 %build
 
-%{_sbindir}/apxs -c mod_countm.c version.c %{ldflags} -L%{_libdir} -lgd -ldb -lapr-1
+%{_sbindir}/apxs -c mod_countm.c version.c %{ldflags} -L%{_libdir} -lgd -ldb -lapr-1 -laprutil-1
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
