@@ -9,7 +9,7 @@ Version:	3.0
 Release:	%mkrel 21
 Group:		System/Servers
 License:	BSD
-URL:		http://sourceforge.net/projects/countm/
+URL:		https://sourceforge.net/projects/countm/
 Source0:	%{mod_name}-%{version}.tar.bz2
 Source1:	%{mod_conf}.bz2
 BuildRequires:	gd-devel
