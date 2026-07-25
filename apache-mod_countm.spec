@@ -6,7 +6,7 @@
 Summary:	DSO module for the apache web server
 Name:		apache-%{mod_name}
 Version:	3.0
-Release:	%mkrel 21
+Release:	22
 Group:		System/Servers
 License:	BSD
 URL:		https://sourceforge.net/projects/countm/
